@@ -6,13 +6,16 @@ const sentryHost = "sentry.io";
 
 // Set knownProjectIds to an array with your Sentry project IDs which you
 // want to accept through this proxy.
-const knownProjectIds: string[] = [];
+const knownProjectIds: string[] = ["javascript-nextjs"];
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const envelope = req.body;
     const pieces = envelope?.split("\n");
+    console.log("**********PIECES**************", pieces);
     const header = JSON.parse(pieces[0]);
+    console.log("**********HEADER**************", header);
+
     // DSNs are of the form `https://<key>@o<orgId>.ingest.sentry.io/<projectId>`
     const { host, pathname } = new URL(header.dsn);
     // Remove leading slash

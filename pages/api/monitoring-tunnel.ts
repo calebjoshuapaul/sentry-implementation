@@ -6,7 +6,11 @@ const sentryHost = "sentry.io";
 
 // Set knownProjectIds to an array with your Sentry project IDs which you
 // want to accept through this proxy.
-const knownProjectIds: string[] = ["javascript-nextjs"];
+const knownProjectIds: string[] = [
+  "javascript-nextjs",
+  "sentry-implementation",
+  "prj_ZB6Gu0RH1crGhkX9LDjEZf9B30DM",
+];
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {

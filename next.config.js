@@ -14,6 +14,7 @@ const moduleExports = {
     //     - disableClientWebpackPlugin
     //     - hideSourceMaps
     //     - widenClientFileUpload
+    hideSourceMaps: true,
     widenClientFileUpload: true,
     //   'Configure Legacy Browser Support':
     //     - transpileClientSDK
@@ -22,6 +23,7 @@ const moduleExports = {
     //     - excludeServerRoutes
     //   'Configure Tunneling to avoid Ad-Blockers':
     //     - tunnelRoute
+    tunnelRoute: "/monitoring-tunnel",
   },
 };
 

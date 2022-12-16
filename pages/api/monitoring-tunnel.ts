@@ -16,7 +16,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const envelope = req.body;
     const pieces = envelope?.split("\n");
-    console.log("**********PIECES**************", pieces);
     const header = JSON.parse(pieces[0]) ?? pieces[0];
 
     // DSNs are of the form `https://<key>@o<orgId>.ingest.sentry.io/<projectId>`
@@ -37,11 +36,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       method: "POST",
       body: envelope,
     });
-
-    console.log(
-      "*******************SENTRY_RES*********************",
-      sentryResponse.headers
-    );
 
     // Relay response from Sentry servers to front end
     sentryResponse.headers.forEach((header: any) => {

@@ -17,8 +17,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     const envelope = req.body;
     const pieces = envelope?.split("\n");
     console.log("**********PIECES**************", pieces);
-    const header = JSON.parse(pieces[0]);
-    console.log("**********HEADER**************", header);
+    const header = JSON.parse(pieces[0]) ?? pieces[0];
 
     // DSNs are of the form `https://<key>@o<orgId>.ingest.sentry.io/<projectId>`
     const { host, pathname } = new URL(header.dsn);
